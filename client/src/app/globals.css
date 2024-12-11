@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 탄성스크롤/ 줌 액션 방지 */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #c6daf9;
+  touch-action: pan-x pan-y;
+  overscroll-behavior: none;
+  user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-drag: none; /* 이미지 드래그 방지 (웹킷 브라우저) */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Gilroy Light 폰트 */
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy-light-webfont.woff2") format("woff2"),
+    url("/fonts/gilroy-light-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Gilroy ExtraBold 폰트 */
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy-extrabold-webfont.woff2") format("woff2"),
+    url("/fonts/gilroy-extrabold-webfont.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("/fonts/NotoSansKR-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("/fonts/NotoSansKR-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("/fonts/NotoSansKR-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("/fonts/NotoSansKR-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("/fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("/fonts/NotoSansKR-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("/fonts/NotoSansKR-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+.glowing-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #fff, -20px 0 80px #f0f, 20px 0 80px #0ff,
+    inset 0 0 50px #fff, inset 50px 0 80px #f0f, inset -50px 0 80px #0ff,
+    inset 50px 0 300px #f0f, inset -50px 0 300px #0ff;
+  animation: pulsate 6s linear infinite;
+}
+
+@keyframes pulsate {
+  50% {
+    box-shadow: 0 0 20px #fff, 20px 0 80px #f0f, -20px 0 80px #0ff,
+      inset 0 0 50px #fff, inset -50px 0 80px #f0f, inset 50px 0 80px #0ff,
+      inset -50px 0 300px #f0f, inset 50px 0 300px #0ff;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes flipUp {
+  0% {
+    transform: rotateX(-180deg) scale(0.85);
+    opacity: 0;
+  }
+  10% {
+    transform: rotateX(-162deg) scale(0.88);
+    opacity: 0.1;
+  }
+  20% {
+    transform: rotateX(-144deg) scale(0.9);
+    opacity: 0.2;
+  }
+  30% {
+    transform: rotateX(-126deg) scale(0.92);
+    opacity: 0.4;
+  }
+  40% {
+    transform: rotateX(-108deg) scale(0.94);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotateX(-90deg) scale(0.96);
+    opacity: 0.7;
+  }
+  60% {
+    transform: rotateX(-72deg) scale(0.98);
+    opacity: 0.8;
+  }
+  70% {
+    transform: rotateX(-54deg) scale(1);
+    opacity: 0.9;
+  }
+  80% {
+    transform: rotateX(-36deg) scale(1);
+    opacity: 0.95;
+  }
+  90% {
+    transform: rotateX(-18deg) scale(1);
+    opacity: 0.98;
+  }
+  100% {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.skeleton {
+  background: #ddd;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.skeleton.text {
+  width: 100%;
+  height: 15px;
+}
+
+.skeleton.title {
+  width: 50%;
+  height: 20px;
+  margin-bottom: 15px;
+}
+
+.skeleton.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+}
+
+.skeleton.thumbnail {
+  width: 100;
+  height: 100px;
+}
+
+/* globals.css */
+
+.glassmorphism-holo {
+  background: rgba(62, 204, 243, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.holo-glow {
+  background: linear-gradient(
+    120deg,
+    rgba(62, 204, 243, 0.2),
+    rgba(255, 255, 255, 0.15),
+    rgba(62, 204, 243, 0.2)
+  );
+  background-size: 300% 300%;
+  filter: blur(8px);
+  mix-blend-mode: overlay;
+  animation: holo-glow-animation 3s ease-in-out infinite;
+}
+
+@keyframes holo-glow-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  @keyframes wobble {
+    0%,
+    100% {
+      transform: scale(1) translateX(0);
+    }
+    25% {
+      transform: scale(1.05) translateX(-5px);
+    }
+    50% {
+      transform: scale(1.1) translateX(5px);
+    }
+    75% {
+      transform: scale(1.05) translateX(-5px);
+    }
+  }
+
+  .animate-wobble {
+    animation: wobble 1.5s ease-in-out infinite;
+  }
+}
+
+/* 눈송이 */
+@layer utilities {
+  .snowflake-container {
+    @apply relative inset-0 overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800;
+  }
+
+  .snowflake {
+    @apply absolute bg-white rounded-full;
+    animation: fall linear infinite;
+  }
+
+  /* 애니메이션 */
+  @keyframes fall {
+    0% {
+      transform: translateY(-10px) scale(0.5);
+    }
+    100% {
+      transform: translateY(100vh) scale(1);
+    }
+  }
+}
